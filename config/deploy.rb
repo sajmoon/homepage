@@ -7,6 +7,15 @@ set :deploy_to,   "/var/www/homepage"
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
+set(:latest_release)  { fetch(:current_path) }
+set(:release_path)    { fetch(:current_path) }
+set(:current_release) { fetch(:current_path) }
+
+set(:current_revision)  { capture("cd #{current_path}; git rev-parse --short HEAD").strip }
+set(:latest_revision)   { capture("cd #{current_path}; git rev-parse --short HEAD").strip }
+set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEAD@{1}").strip }
+
+
 role :web, "109.74.8.12"                          # Your HTTP server, Apache/etc
 role :app, "109.74.8.12"                          # This may be the same as your `Web` server
 role :db,  "109.74.8.12", :primary => true        # This is where Rails migrations will run
@@ -32,7 +41,7 @@ namespace :deploy do
 
   desc "Update the deployed code."
   task :update_code, except: { no_release: true } do
-    run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
+    run "cd #{current_path}; git pull origin #{branch}" #"fetch origin; git reset --hard #{branch}"
     finalize_update
   end
 
@@ -69,17 +78,17 @@ namespace :deploy do
 
   desc "Zero-downtime restart of Unicorn"
   task :restart, :except => { :no_release => true } do
-    run "kill -s USR2 `cat /tmp/unicorn.my_site.pid`"
+    run "kill -s USR2 `cat /var/www/homepage/shared/pids/unicorn.pid`"
   end
 
   desc "Start unicorn"
   task :start, :except => { :no_release => true } do
-    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
+    run "cd #{current_path} ; unicorn_rails -E production -c config/unicorn.rb -D"
   end
 
   desc "Stop unicorn"
   task :stop, :except => { :no_release => true } do
-    run "kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
+    run "kill -s QUIT `cat /var/www/homepage/shared/pids/unicorn.pid`"
   end
 end
 # if you want to clean up old releases on each deploy uncomment this:
