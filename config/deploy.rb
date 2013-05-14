@@ -1,3 +1,5 @@
+require "bundler/capistrano" 
+
 set :application, "homepage"
 set :repository,  "git@github.com:sajmoon/homepage.git"
 set :branch, 	  "master"
@@ -15,6 +17,9 @@ set(:current_revision)  { capture("cd #{current_path}; git rev-parse --short HEA
 set(:latest_revision)   { capture("cd #{current_path}; git rev-parse --short HEAD").strip }
 set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEAD@{1}").strip }
 
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 role :web, "109.74.8.12"                          # Your HTTP server, Apache/etc
 role :app, "109.74.8.12"                          # This may be the same as your `Web` server
