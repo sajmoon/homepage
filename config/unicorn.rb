@@ -37,7 +37,7 @@ pid "/var/www/homepage/shared/pids/unicorn.pid"
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/var/www/homeoage/shared/log/unicorn.stderr.log"
+stderr_path "/var/www/homepage/shared/log/unicorn.stderr.log"
 stdout_path "/var/www/homepage/shared/log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
