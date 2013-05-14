@@ -83,7 +83,8 @@ namespace :deploy do
 
   desc "Zero-downtime restart of Unicorn"
   task :restart, :except => { :no_release => true } do
-    run "kill -s USR2 `cat /var/www/homepage/shared/pids/unicorn.pid`"
+    stop
+    start
   end
 
   desc "Start unicorn"
@@ -93,7 +94,7 @@ namespace :deploy do
 
   desc "Stop unicorn"
   task :stop, :except => { :no_release => true } do
-    run "kill -s QUIT `cat /var/www/homepage/shared/pids/unicorn.pid`"
+    run "kill `cat /var/www/homepage/shared/pids/unicorn.pid`"
   end
 end
 # if you want to clean up old releases on each deploy uncomment this:
