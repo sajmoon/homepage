@@ -3,9 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  .content { 
+  font-family: "ubuntu", "verdana";
+  .container { 
     width:800px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+    .header {
+      text-align: center;
+      h1 {
+        font-size: 40px;
+        font-family: "Maven Pro", "ubuntu", "PT Sans", "verdana";
+        font-weight: 700;
+        font-style: normal;
+        color: #40393C;
+      }
+    }
+    .content {
+      font-size: 12px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      border-top: 1px solid #eee;
+      font-size: 10px;
+      margin-bottom: 25px;
+      p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
   }
 }
