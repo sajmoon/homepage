@@ -2,23 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$red: #AD141E;
+$darkblue: #144653;
+$boxgrey: #f9f9f9;
+$boxborder: darken($boxgrey, 5%);
+
+.strong {
+  font-weight: 700;
+}
 html {
   height: 100%;
+  margin: 0px;
+  padding: 0px;
   body {
     font-family: "ubuntu", "verdana";
-    padding-bottom: 50px;
-    height: 100%;
     margin: 0px;
     padding: 0px;
+    height: 100%;
+    background-color: darken($boxgrey, 0%);
+
+    ul {
+      font-color: red;
+    }
+
+    a {
+      text-decoration: none;
+      color: lighten($darkblue,10%);
+    }
+    a:hover {
+      text-decoration: underline; color: $red;
+    }
 
     #container { 
+      background-color: white;
+      min-height: 100%;
       position: relative;
       width:800px;
       min-height: 100%;
       margin-left: auto;
       margin-right: auto;
+
+      padding: 10px;
+
       #header {
         text-align: center;
+        margin-bottom: 15px;
+        span {
+          font-size: 12px;
+        }
         h1 {
           font-size: 40px;
           font-family: "Maven Pro", "ubuntu", "PT Sans", "verdana";
@@ -28,13 +59,38 @@ html {
         }
       }
       #content {
-        font-size: 12px;
         padding-bottom: 120px;
+        font-size: 12px;
+        padding: 10px;
         #information {
+          width: 530px;
+          margin-left: 10px;
+          h2 {
+            margin-top: 0px;
+          }
+          dl {
+            display: block;
+          }
+          dt {
+            float: left;
+            width: 100px;
+            font-weight: 700;
+          }
+        }
+        #projects {
+          width: 758px;
+          margin-top: 10px;
+        }
+        
+        .block {
+          width: 360px;
+          margin-bottom: 7px;
           display: inline-block;
-          width: 400px;
           vertical-align: top;
-          margin-left: 25px;
+          background-color: lighten($boxgrey, 1%);
+          padding: 4px;
+          border:1px solid $boxborder;
+          -webkit-border-radius: 2px;
           h2 {
             margin-top: 0px;
           }
@@ -45,16 +101,16 @@ html {
             padding: 5px;
             border: 1px solid #eee;
           }
+          margin-bottom: 10px;
         }
       }
       #footer {
-        height: 100px;
+        height: 120px;
         width: 100%;
         position: absolute;
         bottom: 0;
         border-top: 1px solid #eee;
         font-size: 10px;
-        margin-bottom: 25px;
         p {
           margin-top: 0px;
           margin-bottom: 0px;

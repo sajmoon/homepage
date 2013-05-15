@@ -1,11 +1,38 @@
 #gravatar{data: {hash: @emailHash}}
   %img
 
-#information
+#information.block
   %h2
-    Want to get in touch?
+    Who am I?
+  
+  %dl
+    %dt Name:
+    %dd Simon Ström
+
+    
+    %dt Occupation:
+    %dd
+      Studies computer Science at
+      %a{href: "http://www.kth.se"} KTH, Sweden
+    %dt Work:
+    %dd
+      Software Developer at 
+      %a{href: "http://www.three.com"} mobile carrier 3.
 
   %p
-    Have a joboffer? Contact me on
+    See more at
     %a{href: "http://se.linkedin.com/in/simonstrom/"}
       LinkedIn
+
+#projects.block
+  %h2 Something about code.
+  %p
+    I like to code. For the moment its mostly web stuff, RoR and a bit NodeJS.
+
+  %h4 Here is a list of some of the stuff I have done lately.
+  %ul
+    %li
+      %a{href: "http://www.djobb.se"} An add service for job openings.
+    %li
+      A spotify app for requestings songs as part of
+      %a{href: "http://www.sthlmstartuphack.com/"} Stockholm Startup Hack in 2013.
