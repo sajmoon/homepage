@@ -30,7 +30,17 @@ html {
       #content {
         font-size: 12px;
         padding-bottom: 120px;
+        #information {
+          display: inline-block;
+          width: 400px;
+          vertical-align: top;
+          margin-left: 25px;
+          h2 {
+            margin-top: 0px;
+          }
+        }
         #gravatar {
+          display: inline;
           img {
             padding: 5px;
             border: 1px solid #eee;
