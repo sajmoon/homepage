@@ -2,35 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  font-family: "ubuntu", "verdana";
-  .container { 
-    width:800px;
+html {
+  height: 100%;
+  body {
+    font-family: "ubuntu", "verdana";
+    padding-bottom: 50px;
     height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    .header {
-      text-align: center;
-      h1 {
-        font-size: 40px;
-        font-family: "Maven Pro", "ubuntu", "PT Sans", "verdana";
-        font-weight: 700;
-        font-style: normal;
-        color: #40393C;
+    margin: 0px;
+    padding: 0px;
+
+    #container { 
+      position: relative;
+      width:800px;
+      min-height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      #header {
+        text-align: center;
+        h1 {
+          font-size: 40px;
+          font-family: "Maven Pro", "ubuntu", "PT Sans", "verdana";
+          font-weight: 700;
+          font-style: normal;
+          color: #40393C;
+        }
       }
-    }
-    .content {
-      font-size: 12px;
-    }
-    .footer {
-      position: absolute;
-      bottom: 0;
-      border-top: 1px solid #eee;
-      font-size: 10px;
-      margin-bottom: 25px;
-      p {
-        margin-top: 0px;
-        margin-bottom: 0px;
+      #content {
+        font-size: 12px;
+        padding-bottom: 120px;
+        #gravatar {
+          img {
+            padding: 5px;
+            border: 1px solid #eee;
+          }
+        }
+      }
+      #footer {
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #eee;
+        font-size: 10px;
+        margin-bottom: 25px;
+        p {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
       }
     }
   }

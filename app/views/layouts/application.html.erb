@@ -12,12 +12,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="header"><h1>Simon Ström</h1></div>
-    <div class="content">
+  <div id="container">
+    <div id="header"><h1>Simon Ström</h1></div>
+    <div id="content">
       <%= yield %>
     </div>
-    <%= render "shared/footer" %>
+    <div id="footer">
+      <%= render "shared/footer" %>
+    </div>
   </div>
 </body>
 </html>
