@@ -25,7 +25,6 @@ role :web, "109.74.8.12"                          # Your HTTP server, Apache/etc
 role :app, "109.74.8.12"                          # This may be the same as your `Web` server
 role :db,  "109.74.8.12", :primary => true        # This is where Rails migrations will run
 
-
 set :user, "sten"
 
 default_run_options[:pty] = true
@@ -89,7 +88,7 @@ namespace :deploy do
 
   desc "Start unicorn"
   task :start, :except => { :no_release => true } do
-    run "cd #{current_path} ; unicorn_rails -E production -c config/unicorn.rb -D"
+    run "cd #{current_path} && unicorn_rails -E production -c config/unicorn.rb -D"
   end
 
   desc "Stop unicorn"
