@@ -13,6 +13,8 @@ gem 'coffee-rails', github: 'rails/coffee-rails'
 gem 'haml'
 gem "haml-rails"
 
+gem "newrelic_rpm"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
